@@ -3,6 +3,7 @@ package br.com.alurafood.pagamentos.controller;
 import br.com.alurafood.pagamentos.dto.PagamentoDTO;
 import br.com.alurafood.pagamentos.service.PagamentoService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -14,7 +15,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @RestController
-@RequestMapping("/pagamento")
+@RequestMapping("/pagamentos")
 @AllArgsConstructor
 public class PagamentoController {
 
@@ -49,6 +50,11 @@ public class PagamentoController {
     public ResponseEntity<PagamentoDTO> remover(@PathVariable @NotNull Long id) {
         service.excluirPagamento(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/porta")
+    public String retornaPorta(@Value("${local.server.port}") String porta) {
+        return String.format("Requisição respondida pela instância executando na porta %s", porta);
     }
 
 }

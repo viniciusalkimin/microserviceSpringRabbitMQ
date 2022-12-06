@@ -1,0 +1,3 @@
+Comando para rodar outra instancia do programa via terminal:
+
+& "c:\Users\vinicius.alkimin\Desktop\Alura-Workspace\pagamentos\mvnw.cmd" spring-boot:run -f "c:\Users\vinicius.alkimin\Desktop\Alura-Workspace\pagamentos\pom.xml"
